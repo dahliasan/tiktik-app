@@ -56,7 +56,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
           </div>
         </div>
       </div>
-      <div className="lg:ml-20 flex gap-4">
+      <div className="max-w-sm">
         <div
           onMouseEnter={() => {
             setIsHover(true)
@@ -64,20 +64,20 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
           onMouseLeave={() => {
             setIsHover(false)
           }}
-          className="rounded-3xl relative"
+          className="rounded-3xl relative p-4 "
         >
-          <Link href="/">
+          <Link href={`/detail/${post._id}`}>
             <video
               src={post.video.asset.url}
               loop
               ref={videoRef}
-              className="lg:w[600px] h-[300px] md:-h[400px] lg:h-[530px] w-50 rounded-2xl cursor-pointer bg-gray-100"
+              className="rounded-2xl cursor-pointer bg-gray-100 max-w-full aspect-[9/16]"
             />
           </Link>
           {/* "absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex
           gap-10 lg:justify-between w-[100px] md:w-[50px] p-3" */}
           {isHover && (
-            <div className="absolute left-[50%] translate-x-[-50%] flex gap-4 bottom-2">
+            <div className="absolute left-[50%] translate-x-[-50%] flex gap-4 bottom-8">
               {playing ? (
                 <button className="bg-gray-100 bg-opacity-80 rounded-md p-1">
                   <BsFillPauseFill
